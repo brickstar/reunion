@@ -9,12 +9,15 @@ class Activity
     @participants[participant_name] = paid
   end
 
-  def evaluate_cost
-    @participants.values.sum.to_f
+  def total_cost
+    @participants.values.sum
   end
 
   def split_total_cost
-    total_cost = evaluate_cost
-    total_cost / @participants.keys.length
+    total_cost / @participants.length
+  end
+
+  def calculate_payment_difference
+
   end
 end

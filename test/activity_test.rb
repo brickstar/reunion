@@ -25,45 +25,51 @@ class ActivityTest < Minitest::Test
   end
 
   def test_it_can_add_participants
-    @act.add_participant("Pearl", 20)
+    @act.add_participant("Pearl", 200)
 
-    expected = {"Pearl" => 20}
+    expected = {"Pearl" => 200}
     actual = @act.participants
 
     assert_equal expected, actual
   end
 
   def test_participant_attributes
-    @act.add_participant("Pearl", 20)
+    @act.add_participant("Pearl", 200)
 
     expected = "Pearl"
     actual = @act.participants.keys[0]
 
     assert_equal expected, actual
 
-    expected = 20
+    expected = 200
     actual = @act.participants["Pearl"]
 
     assert_equal expected, actual
   end
 
   def test_it_can_evaluate_costs
-    @act.add_participant("Pearl", 20)
-    @act.add_participant("Heidi", 25)
+    @act.add_participant("Pearl", 200)
+    @act.add_participant("Heidi", 250)
 
-    expected = 45
-    actual = @act.evaluate_cost
+    expected = 450
+    actual = @act.total_cost
 
     assert_equal expected, actual
   end
 
   def test_it_can_split_cost_of_an_activity
-    @act.add_participant("Pearl", 20)
-    @act.add_participant("Heidi", 25)
+    @act.add_participant("Pearl", 200)
+    @act.add_participant("Heidi", 250)
 
-    expected = 22.5
+    expected = 225
     actual = @act.split_total_cost
 
     assert_equal expected, actual
+  end
+
+  def test_it_can_calculate_over_and_underpayment
+    @act.add_participant("Pearl", 200)
+    @act.add_participant("Heidi", 250)
+
   end
 end
