@@ -73,7 +73,7 @@ class ActivityTest < Minitest::Test
 
     expected = {"Pearl" => -25, "Heidi" => 25}
     actual = @act.calculate_payment_offset
-binding.pry
+
     assert_equal expected, actual
   end
 end
