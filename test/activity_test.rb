@@ -17,7 +17,8 @@ class ActivityTest < Minitest::Test
   end
 
   def test_participants_starts_as_empty_hash
-
+    expected = Hash.new(0)
+    assert_equal expected, @act.participants
   end
 
   def test_it_can_add_participants
