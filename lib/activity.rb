@@ -10,6 +10,11 @@ class Activity
   end
 
   def evaluate_cost
-    @participants.values.sum
+    @participants.values.sum.to_f
+  end
+
+  def split_total_cost
+    total_cost = evaluate_cost
+    total_cost / @participants.keys.length
   end
 end
