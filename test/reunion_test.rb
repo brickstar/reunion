@@ -26,6 +26,13 @@ class ReunionTest < Minitest::Test
   end
 
   def test_it_can_add_activities
+    @act_1.add_participant("Pearl", 200)
+    @act_1.add_participant("Heidi", 250)
+    @act_1.add_participant("Matt", 150)
+binding.pry
+    expected = {"Golf" => 600}
+    actual = @r.activities
 
+    assert_equal expected, actual
   end
 end

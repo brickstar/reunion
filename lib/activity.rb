@@ -10,7 +10,7 @@ class Activity
   end
 
   def total_cost
-    @participants.values.sum.to_f
+    @participants.values.sum
   end
 
   def split_total_cost
