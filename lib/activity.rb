@@ -10,14 +10,18 @@ class Activity
   end
 
   def total_cost
-    @participants.values.sum
+    @participants.values.sum.to_f
   end
 
   def split_total_cost
     total_cost / @participants.length
   end
 
-  def calculate_payment_difference
-
+  def calculate_payment_offset
+    offset = {}
+    @participants.keys.map do |name|
+      offset[name] = @participants[name] - split_total_cost
+    end
+    offset
   end
 end
