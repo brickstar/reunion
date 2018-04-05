@@ -7,5 +7,7 @@ class Reunion
     @activities = Hash.new(0)
   end
 
-  def
+  def add_activity(activity)
+    @activities[activity.activity_name] = activity.total_cost
+  end
 end

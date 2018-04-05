@@ -29,7 +29,8 @@ class ReunionTest < Minitest::Test
     @act_1.add_participant("Pearl", 200)
     @act_1.add_participant("Heidi", 250)
     @act_1.add_participant("Matt", 150)
-binding.pry
+    @r.add_activity(@act_1)
+    
     expected = {"Golf" => 600}
     actual = @r.activities
 
