@@ -48,6 +48,22 @@ class ActivityTest < Minitest::Test
   end
 
   def test_it_can_evaluate_costs
+    @act.add_participant("Pearl", 20)
+    @act.add_participant("Heidi", 25)
 
+    expected = 45
+    actual = @act.evaluate_cost
+
+    assert_equal expected, actual
+  end
+
+  def test_it_can_split_cost_of_an_activity
+    @act.add_participant("Pearl", 20)
+    @act.add_participant("Heidi", 25)
+
+    expected = 22.5
+    actual = @act.split_total_cost
+
+    assert_equal expected, actual
   end
 end
