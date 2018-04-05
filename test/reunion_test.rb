@@ -30,10 +30,32 @@ class ReunionTest < Minitest::Test
     @act_1.add_participant("Heidi", 250)
     @act_1.add_participant("Matt", 150)
     @r.add_activity(@act_1)
-    
+
     expected = {"Golf" => 600}
     actual = @r.activities
 
     assert_equal expected, actual
+  end
+
+  def test_it_can_evaulate_reunion_cost
+    @act_1.add_participant("Pearl", 200)
+    @act_1.add_participant("Heidi", 250)
+    @act_1.add_participant("Matt", 150)
+    @r.add_activity(@act_1)
+
+    @act_2.add_participant("John", 200)
+    @act_2.add_participant("Jerri", 250)
+    @act_2.add_participant("Chris", 150)
+    @act_2.add_participant("Lina", 200)
+    @r.add_activity(@act_2)
+
+    expected = 1400
+    actual = @r.total_activities_cost
+
+    assert_equal expected, actual
+  end
+
+  def test_it_can_calculate_payment_offset
+
   end
 end

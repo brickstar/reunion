@@ -10,4 +10,8 @@ class Reunion
   def add_activity(activity)
     @activities[activity.activity_name] = activity.total_cost
   end
+
+  def total_activities_cost
+    @activities.values.sum
+  end
 end
