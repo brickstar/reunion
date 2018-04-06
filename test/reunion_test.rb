@@ -70,8 +70,8 @@ class ReunionTest < Minitest::Test
     @act_2.add_participant("Lina", 200)
     @r.add_activity(@act_2)
 
-    expected = [ {"Pearl"=>0, "Heidi"=>50, "Matt"=>-50},
-                 {"Pearl"=>0, "Heidi"=>50, "Chris"=>-50, "Lina"=>0} ]
+    expected = { "Golf"=> {"Pearl"=>0, "Heidi"=>50, "Matt"=>-50}, 
+                 "Tennis"=> {"Pearl"=>0, "Heidi"=>50, "Chris"=>-50, "Lina"=>0}}
     actual = @r.reunion_payment_offset
 
     assert_equal expected, actual

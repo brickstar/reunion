@@ -19,8 +19,10 @@ class Reunion
   end
 
   def reunion_payment_offset
+    offset = {}
     @activities.map do |activity|
-      activity.calculate_payment_offset
+      offset[activity.activity_name] = activity.calculate_payment_offset
     end
+    offset
   end
 end
