@@ -46,19 +46,34 @@ class ReunionTest < Minitest::Test
     @act_1.add_participant("Matt", 150)
     @r.add_activity(@act_1)
 
-    @act_2.add_participant("John", 200)
-    @act_2.add_participant("Jerri", 250)
+    @act_2.add_participant("Pearl", 200)
+    @act_2.add_participant("Heidi", 250)
     @act_2.add_participant("Chris", 150)
     @act_2.add_participant("Lina", 200)
     @r.add_activity(@act_2)
-    
+
     expected = 1400
     actual = @r.total_activities_cost
 
     assert_equal expected, actual
   end
 
-  def test_it_can_calculate_payment_offset
+  def test_it_can_create_offset_hash
+    @act_1.add_participant("Pearl", 200)
+    @act_1.add_participant("Heidi", 250)
+    @act_1.add_participant("Matt", 150)
+    @r.add_activity(@act_1)
 
+    @act_2.add_participant("Pearl", 200)
+    @act_2.add_participant("Heidi", 250)
+    @act_2.add_participant("Chris", 150)
+    @act_2.add_participant("Lina", 200)
+    @r.add_activity(@act_2)
+
+    expected = [ {"Pearl"=>0, "Heidi"=>50, "Matt"=>-50},
+                 {"Pearl"=>0, "Heidi"=>50, "Chris"=>-50, "Lina"=>0} ]
+    actual = @r.reunion_payment_offset
+
+    assert_equal expected, actual
   end
 end
