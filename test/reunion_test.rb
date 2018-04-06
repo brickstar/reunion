@@ -19,20 +19,23 @@ class ReunionTest < Minitest::Test
   end
 
   def test_it_has_activities_and_starts_empty
-    expected = Hash.new(0)
+    expected = []
     actual = @r.activities
 
     assert_equal expected, actual
   end
 
   def test_it_can_add_activities
-    @act_1.add_participant("Pearl", 200)
-    @act_1.add_participant("Heidi", 250)
-    @act_1.add_participant("Matt", 150)
     @r.add_activity(@act_1)
+    @r.add_activity(@act_2)
 
-    expected = {"Golf" => 600}
-    actual = @r.activities
+    expected = "Golf"
+    actual = @r.activities[0].activity_name
+
+    assert_equal expected, actual
+
+    expected = "Tennis"
+    actual = @r.activities[1].activity_name
 
     assert_equal expected, actual
   end
@@ -48,7 +51,7 @@ class ReunionTest < Minitest::Test
     @act_2.add_participant("Chris", 150)
     @act_2.add_participant("Lina", 200)
     @r.add_activity(@act_2)
-
+    
     expected = 1400
     actual = @r.total_activities_cost
 
