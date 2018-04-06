@@ -5,7 +5,7 @@ class Reunion
   def initialize(location)
     @location = location
     @activities = []
-    @participants = []
+    @participants = [] # was planning on using this if time had allowed
   end
 
   def add_activity(activity)

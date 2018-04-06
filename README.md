@@ -13,13 +13,20 @@ Included with your pull request, you must submit answers to the following questi
 
 * What do you think we were trying to get you to learn with this challenge?
 
-How to reach into a box within a box (and perhaps more boxes within boxes) to manipulate, isolate and calculate data based on a set of specifications.
+  * How to reach into a box within a box (and perhaps more boxes within boxes) to manipulate, isolate and calculate data based on a set of specifications.
+  * How to implement clean design for efficient problem solving.
 
 * Outline in words (at least 5-6 sentences) what your code is doing in order to solve this problem.
 
+  * I created containers to hold data so it could be accessed and manipulated. I was attempting to streamline design for readability and maintainability. I wanted design to be dynamic to fit any number of activities. I wanted to utilize hashes and arrays when suitable. I felt class extraction would have made sense with this exercise - implementing a Participant class. 
+
 * What was the most difficult portion of this for you?
 
+  * The end of iteration 4 presents design challenges for me - with more experience solving problems like this, i will gain insight as to what design decisions lead to expedited and streamlined results. Another challenge is interpreting the specifications - should payment offsets be calculated based on the number of times a participant participated in an activity, or based on the total number of participants at the reunion?
+  I did not allow myself enough time to solve this problem - also completion is challenging while you are watching a 3 year old. I should have managed my time more efficiently earlier in the day to ensure completion. I am not inherently sure what design makes for the easiest solution - the reunion_payment_offset method is a helper method that will aid in solving the overall problem, but does it need to be a hash with the activity as keys, or can it simply be an array with activity hashes not containing the activity name? I ran out of time before i was able to make this decision.
+
 * What came naturally to you?
+  * Style and syntax is definitely feeling natural.
 
 ## Tasks
 
